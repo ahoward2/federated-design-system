@@ -89,6 +89,7 @@ const nodeConfig = {
         "./ThemeContext": "./src/context/ThemeContext",
         "./darkTheme": "./src/styles/themes",
         "./lightTheme": "./src/styles/themes",
+        "./useThemeMode": "./src/util/hooks/useThemeMode",
       },
       shared: {
         ...deps,
