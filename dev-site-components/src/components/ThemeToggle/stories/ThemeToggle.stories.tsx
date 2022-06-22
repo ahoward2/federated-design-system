@@ -4,7 +4,6 @@ const Readme = require("../README.md").default;
 import { ThemeProvider } from "styled-components";
 import ThemeToggle from "../ThemeToggle";
 import GlobalStyle from "../../../styles/global";
-import ThemeContext from "../../../context/ThemeContext";
 import { lightTheme, darkTheme } from "../../../styles/themes";
 import useThemeMode from "../../../util/hooks/useThemeMode";
 
@@ -24,14 +23,12 @@ const Template: ComponentStory<typeof ThemeToggle> = () => {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   return (
-    <ThemeContext>
-      <ThemeProvider theme={themeMode}>
-        <GlobalStyle />
-        <ThemeToggle themeToggler={themeToggler} />
-        <h1>example h1</h1>
-        <h2>example h2</h2>
-      </ThemeProvider>
-    </ThemeContext>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyle />
+      <ThemeToggle themeToggler={themeToggler} />
+      <h1>example h1</h1>
+      <h2>example h2</h2>
+    </ThemeProvider>
   );
 };
 
