@@ -1,6 +1,6 @@
 {
-  "name": "dev-site-components",
-  "version": "1.0.4",
+  "name": "design-system",
+  "version": "0.0.1",
   "main": "dist/node/remote-entry.js",
   "browser": "dist/browser/remote-entry.js",
   "files": [
@@ -18,9 +18,7 @@
     "story": "rm -rf ./dist && concurrently -k \"yarn watch:dev\" \"yarn storybook\" \"yarn federate\"",
     "storybook": "start-storybook -p 6008",
     "build-storybook": "build-storybook",
-    "federate": "serve ./dist -p 3003",
-    "setup": "yarn && yarn test",
-    "generate-component": "node ./src/util/cli/generateComponent/index.ts && yarn test "
+    "federate": "serve ./dist -p 3001"
   },
   "license": "MIT",
   "author": {

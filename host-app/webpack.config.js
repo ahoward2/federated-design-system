@@ -4,13 +4,13 @@ const path = require("path");
 const { camelCase } = require("camel-case");
 
 const federatedRemotes = {
-  "dev-profile-components": "^0.0.1",
+  "design-system": "^0.0.1",
 };
 
 const localRemotes = {
-  "dev-site-components": `${camelCase(
-    "dev-site-components"
-  )}@http://localhost:3003/browser/remote-entry.js`,
+  "design-system": `${camelCase(
+    "design-system"
+  )}@http://localhost:3001/browser/remote-entry.js`,
 };
 
 const deps = {
@@ -38,7 +38,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    port: 3002,
+    port: 3000,
   },
   output: {
     publicPath: "auto",

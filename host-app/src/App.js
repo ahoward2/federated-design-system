@@ -4,19 +4,15 @@ import { ThemeProvider } from "styled-components";
 
 // import DynamicRemoteContainer from "./hooks/DynamicRemoteContainer";
 
-const RemoteThemeToggle = React.lazy(() =>
-  import("dev-site-components/ThemeToggle")
-);
-const RemoteGlobalStyle = React.lazy(() =>
-  import("dev-site-components/GlobalStyle")
-);
+const RemoteThemeToggle = React.lazy(() => import("design-system/ThemeToggle"));
+const RemoteGlobalStyle = React.lazy(() => import("design-system/GlobalStyle"));
 
 import GlobalStyle from "./styles/global";
 
-import { lightTheme as RemoteLightTheme } from "dev-site-components/lightTheme";
-import { darkTheme as RemoteDarkTheme } from "dev-site-components/darkTheme";
+import { lightTheme as RemoteLightTheme } from "design-system/lightTheme";
+import { darkTheme as RemoteDarkTheme } from "design-system/darkTheme";
 
-import useThemeMode from "dev-site-components/useThemeMode";
+import useThemeMode from "design-system/useThemeMode";
 
 // Consumption through plugin
 const App = () => {
