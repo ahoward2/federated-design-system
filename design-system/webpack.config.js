@@ -27,10 +27,19 @@ const baseConfig = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
+        test: /\.jsx$/,
+        loader: "esbuild-loader",
+        options: {
+          loader: "jsx",
+          target: "es2015",
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "esbuild-loader",
+        options: {
+          loader: "tsx",
+          target: "es2015",
         },
       },
     ],

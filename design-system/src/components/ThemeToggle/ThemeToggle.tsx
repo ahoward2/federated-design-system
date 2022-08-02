@@ -4,9 +4,9 @@ import { FaSun } from "react-icons/fa";
 
 import * as S from "./ThemeToggle.styles";
 
-interface ThemeTogglerProps {
+type ThemeTogglerProps = {
   themeToggler: () => void;
-}
+};
 
 function TogglerButton({ themeToggler }: ThemeTogglerProps) {
   return (

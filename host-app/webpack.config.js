@@ -57,10 +57,10 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/,
+        loader: "esbuild-loader",
         options: {
-          presets: ["@babel/preset-react"],
+          loader: "jsx",
+          target: "es2015",
         },
       },
     ],

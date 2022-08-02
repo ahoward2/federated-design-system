@@ -1,22 +1,9 @@
-import { addDecorator } from "@storybook/react"; // <- or your view layer
-import { withTests } from "@storybook/addon-jest";
-import { addReadme } from "storybook-readme";
-import { withPerformance } from 'storybook-addon-performance';
-try {
-  if (require.resolve('../.jest-test-results.json')) {
-    const results = require('../.jest-test-results.json');
-    addDecorator(
-      withTests({
-        results,
-      })
-    );
-  }
-} catch (e) {
-  console.log('error', e);
-}
-addDecorator(addReadme);
-addDecorator(withPerformance);
-
+import React from "react";
+import GlobalStyle from "../src/styles/global";
+import { ThemeProvider } from "styled-components";
+import ThemeToggle from "../src/components/ThemeToggle";
+import { lightTheme, darkTheme } from "../src/styles/themes";
+import useThemeMode from "../src/util/hooks/useThemeMode";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -26,4 +13,21 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: "centered",
 };
+
+export const decorators = [
+  (Story) => {
+    const { theme, themeToggler } = useThemeMode("light");
+    const themeMode = theme === "light" ? lightTheme : darkTheme;
+    return (
+      <ThemeProvider theme={themeMode}>
+        <div style={{ marginBottom: 20 }}>
+          <ThemeToggle themeToggler={themeToggler} />
+        </div>
+        <GlobalStyle />
+        <Story />
+      </ThemeProvider>
+    );
+  },
+];

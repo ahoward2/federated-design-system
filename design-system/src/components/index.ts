@@ -1,2 +1,2 @@
-export * from "./NewComponentTemplate";
+export * from "./Button";
 export * from "./ThemeToggle";
