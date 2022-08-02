@@ -62,6 +62,8 @@ const browserConfig = {
         "./darkTheme": "./src/styles/themes",
         "./lightTheme": "./src/styles/themes",
         "./useThemeMode": "./src/util/hooks/useThemeMode",
+        "./Button": "./src/components/Button",
+        "./MessageBox": "./src/components/MessageBox",
       },
       shared: {
         ...deps,
@@ -99,6 +101,8 @@ const nodeConfig = {
         "./darkTheme": "./src/styles/themes",
         "./lightTheme": "./src/styles/themes",
         "./useThemeMode": "./src/util/hooks/useThemeMode",
+        "./Button": "./src/components/Button",
+        "./MessageBox": "./src/components/MessageBox",
       },
       shared: {
         ...deps,

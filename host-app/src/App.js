@@ -2,10 +2,10 @@ import React from "react";
 
 import { ThemeProvider } from "styled-components";
 
-// import DynamicRemoteContainer from "./hooks/DynamicRemoteContainer";
-
 const RemoteThemeToggle = React.lazy(() => import("design-system/ThemeToggle"));
 const RemoteGlobalStyle = React.lazy(() => import("design-system/GlobalStyle"));
+const RemoteButton = React.lazy(() => import("design-system/Button"));
+const RemoteMessageBox = React.lazy(() => import("design-system/MessageBox"));
 
 import GlobalStyle from "./styles/global";
 
@@ -14,7 +14,6 @@ import { darkTheme as RemoteDarkTheme } from "design-system/darkTheme";
 
 import useThemeMode from "design-system/useThemeMode";
 
-// Consumption through plugin
 const App = () => {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "light" ? RemoteLightTheme : RemoteDarkTheme;
@@ -26,38 +25,22 @@ const App = () => {
       <React.Suspense fallback="Loading Theme Toggler">
         <RemoteThemeToggle themeToggler={themeToggler} />
       </React.Suspense>
-      <h1>Austin Howard</h1>
-      <h2>React Developer</h2>
+      <br></br>
+      <h1>Design system</h1>
+      <h2>Consumed via Module Federation</h2>
+      <br></br>
+      <React.Suspense fallback="Loading Button">
+        <RemoteButton text={"Button with primary color"}></RemoteButton>
+      </React.Suspense>
+      <br></br>
+      <React.Suspense fallback="Loading MessageBox">
+        <RemoteMessageBox
+          text={"Message box with secondary color"}
+          messageType={"info"}
+        ></RemoteMessageBox>
+      </React.Suspense>
     </ThemeProvider>
   );
 };
-
-/*
- Consumption through DynamicRemoteContainer
- The DynamicRemoteContainer supports consumption of react components, would need a additional
- support in the DRC to support the use of hooks.
- */
-// const App = () => {
-//   const { theme, themeToggler } = useThemeMode();
-//   const themeMode = theme === "light" ? RemoteLightTheme : RemoteDarkTheme;
-//   return (
-//     <ThemeProvider theme={themeMode}>
-//       <DynamicRemoteContainer
-//         url={"http://localhost:3003/browser/remote-entry.js"}
-//         scope={"devSiteComponents"}
-//         module={"./GlobalStyle"}
-//         componentProps={{}}
-//       />
-//       <DynamicRemoteContainer
-//         url={"http://localhost:3003/browser/remote-entry.js"}
-//         scope={"devSiteComponents"}
-//         module={"./ThemeToggle"}
-//         componentProps={{ themeToggler: themeToggler }}
-//       />
-//       <h1>Austin Howard</h1>
-//       <h2>React Developer</h2>
-//     </ThemeProvider>
-//   );
-// };
 
 export default App;
