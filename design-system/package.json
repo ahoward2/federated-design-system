@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "federated-design-system",
   "version": "0.0.1",
   "main": "dist/node/remote-entry.js",
   "browser": "dist/browser/remote-entry.js",
@@ -7,25 +7,17 @@
     "dist"
   ],
   "scripts": {
+    "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn storybook\" \"yarn federate\"",
     "build": "webpack --mode production",
     "prebuild": "rimraf dist",
-    "watch": "webpack --mode production --watch",
-    "build:dev": "webpack --mode development",
-    "watch:dev": "webpack --mode development --watch",
+    "build:watch": "webpack --mode development --watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "start": "webpack serve --open --mode development",
-    "start:live": "webpack serve --open --mode development --liveReload",
-    "story": "rm -rf ./dist && concurrently -k \"yarn watch:dev\" \"yarn storybook\" \"yarn federate\"",
     "storybook": "start-storybook -p 6008",
     "build-storybook": "build-storybook",
     "federate": "serve ./dist -p 3001"
   },
   "license": "MIT",
-  "author": {
-    "name": "Austin Howard",
-    "email": "ahoward@austinhoward.tech"
-  },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.3.8",
     "@storybook/addon-actions": "^6.3.8",

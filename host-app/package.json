@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "bundle-loader": "0.5.6",
+    "concurrently": "^7.3.0",
     "esbuild-loader": "^2.19.0",
     "html-webpack-plugin": "5.3.2",
     "rimraf": "^3.0.2",
@@ -13,6 +14,8 @@
     "webpack-dev-server": "4.2.1"
   },
   "scripts": {
+    "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn serve\"",
+    "build:watch": "webpack --mode production --watch",
     "start": "webpack-cli serve",
     "build": "webpack --mode production",
     "serve": "serve dist -p 3000",

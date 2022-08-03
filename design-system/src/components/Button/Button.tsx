@@ -2,14 +2,14 @@ import React from "react";
 import ButtonWrapper from "./Button.styles";
 
 interface ButtonProps {
-  text?: string;
+  children?: React.ReactNode;
 }
 
-const Button = ({ text }: ButtonProps) => {
+const Button = ({ children }: ButtonProps) => {
   return (
     <ButtonWrapper>
       <button className="styled-button">
-        {text ? text : "no prop value provided"}
+        {children ? children : "no prop value provided"}
       </button>
     </ButtonWrapper>
   );

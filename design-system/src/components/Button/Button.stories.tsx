@@ -7,7 +7,7 @@ export default {
   title: "Button",
   component: Button,
   argTypes: {
-    text: { control: "text" },
+    children: { control: "text" },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: "Hello World",
+  children: "Hello World",
 };
 
 export const Secondary = Template.bind({});

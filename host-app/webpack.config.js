@@ -4,12 +4,12 @@ const path = require("path");
 const { camelCase } = require("camel-case");
 
 const federatedRemotes = {
-  "design-system": "^0.0.1",
+  "federated-design-system": "^0.0.1",
 };
 
 const localRemotes = {
-  "design-system": `${camelCase(
-    "design-system"
+  "federated-design-system": `${camelCase(
+    "federated-design-system"
   )}@http://localhost:3001/browser/remote-entry.js`,
 };
 
