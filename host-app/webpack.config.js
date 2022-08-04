@@ -18,18 +18,18 @@ const deps = {
   ...require("./package.json").dependencies,
 };
 
-// const unpkgRemote = (name) =>
-//   `${camelCase(name)}@https://unpkg.com/${name}@${
-//     deps[name]
-//   }/dist/browser/remote-entry.js`;
+const unpkgRemote = (name) =>
+  `${camelCase(name)}@https://unpkg.com/${name}@${
+    deps[name]
+  }/dist/browser/remote-entry.js`;
 
-// const remotes = Object.keys(federatedRemotes).reduce(
-//   (remotes, lib) => ({
-//     ...remotes,
-//     [lib]: unpkgRemote(lib),
-//   }),
-//   {}
-// );
+const remotes = Object.keys(federatedRemotes).reduce(
+  (remotes, lib) => ({
+    ...remotes,
+    [lib]: unpkgRemote(lib),
+  }),
+  {}
+);
 
 module.exports = {
   entry: "./src/index",
@@ -79,8 +79,7 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: "dev-site-host",
-      remotes:
-        /* process.env.LOCAL_MODULES === "true" ? */ localRemotes /*: remotes,*/,
+      remotes: process.env.LOCAL_MODULES === "true" ? localRemotes : remotes,
       exposes: {},
       shared: {
         ...deps,
