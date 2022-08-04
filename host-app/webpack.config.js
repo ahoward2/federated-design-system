@@ -63,14 +63,20 @@ module.exports = {
           target: "es2015",
         },
       },
+      {
+        test: /\.tsx?$/,
+        loader: "esbuild-loader",
+        options: {
+          loader: "tsx",
+          target: "es2015",
+        },
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-    // If you're only making use of a dynamic remote container,
-    // you actually wouldn't NEED the module federation plugin.
     new ModuleFederationPlugin({
       name: "dev-site-host",
       remotes:

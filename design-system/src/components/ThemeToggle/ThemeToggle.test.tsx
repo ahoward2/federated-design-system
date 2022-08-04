@@ -7,7 +7,7 @@ import { lightTheme, darkTheme } from "../../styles/themes";
 import useThemeMode from "../../util/hooks/useThemeMode";
 
 const WrappedToggle = () => {
-  const { theme, themeToggler } = useThemeMode();
+  const { theme, themeToggler } = useThemeMode("light");
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (

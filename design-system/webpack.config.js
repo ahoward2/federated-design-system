@@ -84,46 +84,46 @@ const browserConfig = {
   ],
 };
 
-const nodeConfig = {
-  output: {
-    path: path.resolve("./dist/node"),
-  },
-  plugins: [
-    new ModuleFederationPlugin({
-      name,
-      filename: "remote-entry.js",
-      library: { type: "commonjs" },
-      remotes: {},
-      exposes: {
-        "./ThemeToggle": "./src/components/ThemeToggle",
-        "./GlobalStyle": "./src/styles/global",
-        "./ThemeContext": "./src/context/ThemeContext",
-        "./darkTheme": "./src/styles/themes",
-        "./lightTheme": "./src/styles/themes",
-        "./useThemeMode": "./src/util/hooks/useThemeMode",
-        "./Button": "./src/components/Button",
-        "./MessageBox": "./src/components/MessageBox",
-      },
-      shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
-        },
-        "styled-components": {
-          singleton: true,
-          requiredVersion: deps["styled-components"],
-        },
-      },
-    }),
-  ],
-};
+// const nodeConfig = {
+//   output: {
+//     path: path.resolve("./dist/node"),
+//   },
+//   plugins: [
+//     new ModuleFederationPlugin({
+//       name,
+//       filename: "remote-entry.js",
+//       library: { type: "commonjs" },
+//       remotes: {},
+//       exposes: {
+//         "./ThemeToggle": "./src/components/ThemeToggle",
+//         "./GlobalStyle": "./src/styles/global",
+//         "./ThemeContext": "./src/context/ThemeContext",
+//         "./darkTheme": "./src/styles/themes",
+//         "./lightTheme": "./src/styles/themes",
+//         "./useThemeMode": "./src/util/hooks/useThemeMode",
+//         "./Button": "./src/components/Button",
+//         "./MessageBox": "./src/components/MessageBox",
+//       },
+//       shared: {
+//         ...deps,
+//         react: {
+//           singleton: true,
+//           requiredVersion: deps.react,
+//         },
+//         "react-dom": {
+//           singleton: true,
+//           requiredVersion: deps["react-dom"],
+//         },
+//         "styled-components": {
+//           singleton: true,
+//           requiredVersion: deps["styled-components"],
+//         },
+//       },
+//     }),
+//   ],
+// };
 
 module.exports = [
   merge(baseConfig, browserConfig),
-  merge(baseConfig, nodeConfig),
+  // merge(baseConfig, nodeConfig),
 ];

@@ -1,16 +1,23 @@
+// @ts-nocheck
+
+//
+// Unfortunately, since Module Federation involves runtime consumtion of components
+// and hooks, we lose the ability to easily get full typescript support.
+//
+
 import React from "react";
 
 import { ThemeProvider } from "styled-components";
 
-const RemoteThemeToggle = React.lazy(() =>
-  import("federated-design-system/ThemeToggle")
+const RemoteThemeToggle = React.lazy(
+  () => import("federated-design-system/ThemeToggle")
 );
-const RemoteGlobalStyle = React.lazy(() =>
-  import("federated-design-system/GlobalStyle")
+const RemoteGlobalStyle = React.lazy(
+  () => import("federated-design-system/GlobalStyle")
 );
 const RemoteButton = React.lazy(() => import("federated-design-system/Button"));
-const RemoteMessageBox = React.lazy(() =>
-  import("federated-design-system/MessageBox")
+const RemoteMessageBox = React.lazy(
+  () => import("federated-design-system/MessageBox")
 );
 
 import GlobalStyle from "./styles/global";

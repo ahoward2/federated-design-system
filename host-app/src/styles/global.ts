@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { createGlobalStyle, withTheme } from "styled-components";
 
 const globalStyle = createGlobalStyle`

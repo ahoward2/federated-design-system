@@ -1,16 +1,18 @@
 {
   "name": "federated-design-system",
   "version": "0.0.1",
-  "main": "dist/node/remote-entry.js",
+  "main": "./dist/node/main.js",
+  "types": "./dist/types/index.d.ts",
   "browser": "dist/browser/remote-entry.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn storybook\" \"yarn federate\"",
-    "build": "webpack --mode production",
-    "prebuild": "rimraf dist",
+    "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn tsc:watch\" \"yarn storybook\" \"yarn federate\"",
+    "build": "webpack --mode production && tsc",
+    "prebuild": "rimraf dist && rimraf types",
     "build:watch": "webpack --mode development --watch",
+    "tsc:watch": "tsc --watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6008",
