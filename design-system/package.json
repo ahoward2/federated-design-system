@@ -1,12 +1,11 @@
 {
   "name": "federated-design-system",
-  "version": "0.0.5",
-  "main": "./dist/lib/index.js",
-  "types": "./dist/lib/index.d.ts",
+  "version": "0.0.6",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "browser": "dist/browser/remote-entry.js",
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
   "scripts": {
     "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn tsc:watch\" \"yarn storybook\" \"yarn federate\"",
