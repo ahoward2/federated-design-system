@@ -1,8 +1,8 @@
 {
   "name": "federated-design-system",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./dist/node/main.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/lib/index.d.ts",
   "browser": "dist/browser/remote-entry.js",
   "files": [
     "dist",
