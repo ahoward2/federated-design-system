@@ -20,6 +20,7 @@
   },
   "scripts": {
     "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn serve\"",
+    "dev:local": "LOCAL_MODULES=true yarn dev",
     "build:watch": "webpack --mode development --watch",
     "start": "webpack-cli serve",
     "build": "webpack --mode production",
