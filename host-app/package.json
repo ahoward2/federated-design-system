@@ -20,13 +20,14 @@
   },
   "scripts": {
     "dev": "yarn prebuild && concurrently -k \"yarn build:watch\" \"yarn serve\"",
-    "build:watch": "webpack --mode production --watch",
+    "build:watch": "webpack --mode development --watch",
     "start": "webpack-cli serve",
     "build": "webpack --mode production",
     "serve": "serve dist -p 3000",
     "prebuild": "rimraf dist"
   },
   "dependencies": {
+    "federated-design-system": "^0.0.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.1"

@@ -8,7 +8,7 @@ type ThemeTogglerProps = {
   themeToggler: () => void;
 };
 
-function TogglerButton({ themeToggler }: ThemeTogglerProps) {
+function ThemeToggle({ themeToggler }: ThemeTogglerProps) {
   return (
     <S.Container>
       <label htmlFor="checkbox" className="switch">
@@ -35,4 +35,4 @@ function TogglerButton({ themeToggler }: ThemeTogglerProps) {
   );
 }
 
-export default TogglerButton;
+export default ThemeToggle;

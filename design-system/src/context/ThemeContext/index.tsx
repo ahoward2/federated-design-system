@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { useThemeMode } from "../../util/hooks/useThemeMode";
+import useThemeMode from "../../util/hooks/useThemeMode";
 import { lightTheme, darkTheme } from "../../styles/themes";
 
 const ThemeContext: React.FC = ({ children }) => {

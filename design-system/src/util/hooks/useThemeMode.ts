@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 type ThemeMode = "light" | "dark";
 
-export const useThemeMode = (initialTheme: ThemeMode) => {
+const useThemeMode = (initialTheme: ThemeMode) => {
   const [theme, setTheme] = useState(initialTheme);
 
   const setMode = (mode: ThemeMode) => {

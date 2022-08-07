@@ -8,6 +8,6 @@ it("Button renders text prop", () => {
 });
 
 it("Button renders with no prop value provided", () => {
-  const { getByText } = render(<Button>Hello World from test</Button>);
-  expect(getByText("no prop value provided")).toBeTruthy();
+  const { getByText } = render(<Button></Button>);
+  expect(getByText("no text value provided")).toBeTruthy();
 });
