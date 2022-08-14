@@ -78,7 +78,7 @@ module.exports = {
       template: "./public/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "dev-site-host",
+      name: "host-app",
       remotes: process.env.LOCAL_MODULES === "true" ? localRemotes : remotes,
       exposes: {},
       shared: {
